@@ -29,5 +29,6 @@ public class Repository {
 		
 		driver.findElement(By.xpath(pr.getProperty("EmailOrPhone"))).sendKeys("abc@gmail.com");
 		driver.findElement(By.xpath(pr.getProperty("Password") )).sendKeys("12345");
+		driver.findElement(By.xpath("Male")).click();
 	}
 }
