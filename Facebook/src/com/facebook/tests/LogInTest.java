@@ -13,17 +13,22 @@ public class LogInTest {
 		LogInPage lp = new LogInPage();
 		
 		lp.emailOrPhone();
+		lp.log.info("clicked on emailOrPhone");
 		lp.enterUserName();
+		lp.log.info("userName Entered");
 		lp.password();
+		lp.log.info("clicked on password");
 		lp.enterPassword();
+		lp.log.info("Password Entered");
 		lp.login();
+		lp.log.info("clicked on Login_buttom");
 	}
-	@AfterMethod
+	@AfterMethod 
 	public void toCaptureScreenShot(ITestResult result) throws Exception {
-		LogInPage ms = new LogInPage();
+		ScreenShotOnFailure sf = new ScreenShotOnFailure();
 		
-		ms.captureScreenShot(result);
-		ms.driver.quit();
+		sf.captureScreenShot(result);
+		sf.driver.quit();
 		
 	}
 

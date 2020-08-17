@@ -6,6 +6,8 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -18,9 +20,11 @@ public class MasterPage {
 	public WebDriver driver;
 	public Properties prop;
 	public Properties or;
+	public Logger log;
 
 	public MasterPage() throws Exception {
-
+		log = Logger.getLogger("MasterPage");
+		PropertyConfigurator.configure("C:\\Users\\Bhasker\\git\\Practise\\Facebook\\log4j.properties");
 		FileInputStream fs = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\com\\facebook\\respository\\configuration.properties");
 		prop = new Properties();
@@ -39,7 +43,7 @@ public class MasterPage {
 			System.out.println("open IE browser");
 		}
 		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.get("https://www.facebook.com/");
 	}
 
@@ -51,15 +55,15 @@ public class MasterPage {
 		driver.findElement(By.xpath(or.getProperty(xpathkey))).sendKeys(Date);
 	}
 	
-	public void captureScreenShot(ITestResult result) throws Exception {
-		
-		if (ITestResult.FAILURE == result.getStatus()) {
-			
-			TakesScreenshot ts = (TakesScreenshot)driver;
-			File source = ts.getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(source, new File("./src/com/facebook/screenShotsOnFailure/" + result.getName() + ".png"));
-			System.out.println("Screenshot Captured");
-		}
-	}
+	/*
+	 * public void captureScreenShot(ITestResult result) throws Exception {
+	 * 
+	 * if (ITestResult.FAILURE == result.getStatus()) {
+	 * 
+	 * TakesScreenshot ts = (TakesScreenshot)driver; File source =
+	 * ts.getScreenshotAs(OutputType.FILE); FileUtils.copyFile(source, new
+	 * File("./src/com/facebook/screenShotsOnFailure/" + result.getName() +
+	 * ".png")); System.out.println("Screenshot Captured"); } }
+	 */
 
 }
