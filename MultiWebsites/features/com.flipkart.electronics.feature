@@ -2,23 +2,13 @@
 Feature: add to cart
   I want add an item to cart in flipkart
 
-  @electronic 
+  @Mobile 
   Scenario: add one electronic item to cart
     Given I am user of flipkart application
-    And some other precondition
-    When I complete action
-    And some other action
-    And yet another action
-    Then I validate the outcomes
-    And check more outcomes
+    When I click on moblies
+    And select the one moblie
+    And click on add to cart
+    Then I able to see the mobile on cart
+    And click on remove from cart
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
-
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+ 
