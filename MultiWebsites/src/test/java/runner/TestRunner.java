@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features = {"C:\\Users\\Bhasker\\git\\Practise\\MultiWebsites\\features"},
+features = {"features"},
 glue = {"com.flipkart.StepDefinitions"},
 monochrome = true, dryRun = false
 		)

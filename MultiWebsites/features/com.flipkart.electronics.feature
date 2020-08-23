@@ -6,7 +6,7 @@ Feature: add to cart
   Scenario: add one electronic item to cart
     Given I am user of flipkart application
     When I click on moblies
-    And select the one moblie
+    And select one moblie
     And click on add to cart
     Then I able to see the mobile on cart
     And click on remove from cart
