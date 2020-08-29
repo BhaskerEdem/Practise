@@ -30,14 +30,14 @@ public class Electronics_StepDefintion extends Electronics_PageObject {
 		es.addCart();
 	}
 
-	@Then("^I able to see the mobile on cart$")
+	@Then("^I able to see the mobile on cart$")  
 	public void i_able_to_see_the_mobile_on_cart() throws Throwable {
 		es.confirmation();
 	}
 
 	@Then("^click on remove from cart$")
 	public void click_on_remove_from_cart() throws Throwable {
-		es.remove();
+//		es.remove();
 	}
 
 }

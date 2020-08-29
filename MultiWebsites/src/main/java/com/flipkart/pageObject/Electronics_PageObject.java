@@ -36,35 +36,35 @@ public class Electronics_PageObject {
 		
 	}
 	public void selectMobile() {
-		driver.findElement(By.xpath("//*[text()='POCO']")).click();
-		driver.findElement(By.xpath("//*[@class='_1Nyybr  _30XEf0'][@alt='POCO X2 (Atlantis Blue, 128 GB)']")).click();
+		driver.findElement(By.xpath("//*[text()='Samsung A21s']")).click();
+//		driver.findElement(By.xpath("//*[@class='_1Nyybr  _30XEf0'][@alt='POCO X2 (Atlantis Blue, 128 GB)']")).click();
+		
 	}
 	public void addCart() {
 		
-		Set<String> pi = driver.getWindowHandles();
-		Iterator<String> it = pi.iterator();
-		String MainWindow = it.next();
-		String Mobile = it.next();
-		driver.switchTo().window(Mobile);
+		/*
+		 * Set<String> pi = driver.getWindowHandles(); Iterator<String> it =
+		 * pi.iterator(); String MainWindow = it.next(); String Mobile = it.next();
+		 * driver.switchTo().window(Mobile);
+		 * driver.findElement(By.xpath("//*[text()='ADD TO CART']")).click();
+		 */
 		driver.findElement(By.xpath("//*[text()='ADD TO CART']")).click();
-		
+		System.out.println("Item added to cart successfully");
 	}
 	public void confirmation() {
 		
-		System.out.println("Moblie added to cart successfully");
-		driver.findElement(By.xpath("//*[text()='Remove']")).click();
+		driver.findElement(By.xpath("//div[text()='Remove']")).click();
+
 	}
 	public void remove() {
 		
+		Set<String> pi = driver.getWindowHandles();
+		Iterator<String> it = pi.iterator();
+		String Mainwindow = it.next();
+		String Popup1 = it.next();
+		driver.switchTo().window(Popup1);
+		driver.findElement(By.xpath("//div[text()='Remove'][@class='gdUKd9 _3Z4XMp _2nQDKB']")).click();
 		
-		int totalframes = driver.findElements(By.tagName("iframe")).size();
-		
-		for(int i=0; i<=totalframes; i++) {
-			driver.switchTo().frame(i);
-			WebDriverWait wait = new WebDriverWait(driver, 10);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[text()='Remove']"))).click();
-//			driver.findElement(By.xpath("//*[@id=\"container\"]/div/div[1]/div/div[3]/div/div[2]")).click();
-		}
-		
+		driver.close();
 	}
 }
