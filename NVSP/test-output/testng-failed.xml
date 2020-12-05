@@ -5,6 +5,7 @@
     <classes>
       <class name="nvsp.test.LoginTest">
         <methods>
+          <include name="takeScreenShotOnFailure"/>
           <include name="doLoginTest"/>
         </methods>
       </class> <!-- nvsp.test.LoginTest -->
