@@ -52,15 +52,6 @@ public class MasterPage {
 		driver.findElement(By.xpath(pr.getProperty(xpath))).sendKeys(Data);
 	}
 	
-	public void captureScreenShot(ITestResult result) throws Exception {
-		
-		if(ITestResult.FAILURE == result.getStatus()) {
-			TakesScreenshot ts = (TakesScreenshot)driver;
-			File source = ts.getScreenshotAs(OutputType.FILE);
-			FileUtils.copyFile(source, new File("./src/test/resources/screenShots/"+ result.getName()+".png"));
-			System.out.println("Screenshot Captured");
-		}
-	}
 	
 	
 	

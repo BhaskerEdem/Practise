@@ -4,7 +4,7 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
-import genericPage.MasterPage;
+import genericPage.CaptureScreenShot;
 import nvsp.pages.LogInPage;
 
 public class LoginTest {
@@ -21,9 +21,9 @@ public class LoginTest {
 	}
 	@AfterMethod
 	public void takeScreenShotOnFailure(ITestResult result) throws Exception {
-		MasterPage ms = new MasterPage();
-		ms.captureScreenShot(result);
-		ms.driver.quit();
+		CaptureScreenShot cs = new CaptureScreenShot();
+		cs.screenShotOnFailure(result);
+		cs.driver.quit();
 		
 	}
 }
