@@ -23,13 +23,6 @@ public class LogInTest {
 		lp.login();
 		lp.log.info("clicked on Login_buttom");
 	}
-	@AfterMethod 
-	public void toCaptureScreenShot(ITestResult result) throws Exception {
-		ScreenShotOnFailure sf = new ScreenShotOnFailure();
-		
-		sf.captureScreenShot(result);
-		sf.driver.quit();
-		
-	}
+
 
 }

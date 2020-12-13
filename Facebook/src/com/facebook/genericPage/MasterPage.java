@@ -24,7 +24,7 @@ public class MasterPage {
 
 	public MasterPage() throws Exception {
 		log = Logger.getLogger("MasterPage");
-		PropertyConfigurator.configure("C:\\Users\\Bhasker\\git\\Practise\\Facebook\\log4j.properties");
+		PropertyConfigurator.configure("./log4j.properties");
 		FileInputStream fs = new FileInputStream(
 				System.getProperty("user.dir") + "\\src\\com\\facebook\\respository\\configuration.properties");
 		prop = new Properties();
